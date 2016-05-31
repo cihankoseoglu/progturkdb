@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Table Examples</title>
+    <title>Progturk Database</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
 
@@ -17,6 +17,35 @@
         xfbml      : true,
         version    : 'v2.6'
       });
+
+      var progturkAccessToken = 'EAACEdEose0cBANy3gi2Ts0Xh8AikqD36i2rdiF15jK2NOsEOadLtL5t2ILLd9Qkq1tE2g4QtqgG2ZAaOjcfSoZClW518qzjKraYBIBfuXZCu0RsvumpozMavPf9CuAbcXZABv6w7qbZAN3DoygpkiEkibJ1evKiV48QfxDMH5ggZDZD'
+
+
+      FB.api('/5653393175/feed?fields=link,message,name,from',
+      {access_token : progturkAccessToken},
+      function(response){
+          var table = document.createElement('table');
+
+          for(var i = 0 ; i < response.data.length ; i++){
+
+            var tr = document.createElement('tr');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            td1.innerHTML = response.data[i].from.name;
+            td2.innerHTML = response.data[i].name;
+            td3.innerHTML = response.data[i].link;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            table.appendChild(tr);
+
+          }
+
+          var wrapper = document.getElementById('wrapper');
+          wrapper.appendChild(table);
+
+      });
     };
 
     (function(d, s, id){
@@ -26,11 +55,14 @@
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
+
+
   </script>
 
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -43,21 +75,21 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>Test1</li>
 
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
+<div id="wrapper">
+<div class="container">
+  <div class="row">
 
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
+
+
+  </div>
 </div>
-
+</div> <!--- wrapper -->
 
 </body>
 </html>

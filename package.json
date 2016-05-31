@@ -1,0 +1,22 @@
+{
+  "name": "progturkdb",
+  "version": "0.0.1",
+  "description": "Progturk Db",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cihankoseoglu/progturkdb.git"
+  },
+  "author": "Cihan Koseoglu <cihan@cihankoseoglu.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cihankoseoglu/progturkdb/issues"
+  },
+  "homepage": "https://github.com/cihankoseoglu/progturkdb#readme",
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
